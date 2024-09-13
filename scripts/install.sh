@@ -2,8 +2,13 @@
 
 
 # need rust and npm
-
-
+if type rustc >/dev/null; then
+    echo "rustc is installed (as a command, alias, or function)."
+else
+    echo "rustc is not installed (as a command, alias, or function)."
+    curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf | sh
+    echo "rustc is installed (as a command, alias, or function)."
+fi
 
 # install circom
 if type circom >/dev/null; then
@@ -23,7 +28,7 @@ fi
 if type snarkjs >/dev/null; then
     echo "snarkjs is installed (as a command, alias, or function)."
 else
-    sudo npm install snarkjs
+    sudo npm install -g snarkjs
     echo "snarkjs is installed (as a command, alias, or function)."
 fi
 
