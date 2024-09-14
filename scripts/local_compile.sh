@@ -5,13 +5,12 @@ if type snarkjs2 >/dev/null; then
 else
     git clone https://github.com/SuccinctPaul/snarkjs-blake3
     cd snarkjs-blake3
-    # install related packages
     npm install
-    npm install circom@latest
 
     # link related package
     npm link
     snarkjs2 -v
+    cd ..
     echo "snarkjs2 is installed (as a command, alias, or function)."
 fi
 
