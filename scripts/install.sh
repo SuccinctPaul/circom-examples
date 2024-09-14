@@ -18,7 +18,7 @@ else
     git clone https://github.com/iden3/circom.git
     cd circom
     cargo build --release
-    sudo cargo install --path circom
+    cargo install --path circom
     circom --help
     echo "circom is installed (as a command, alias, or function)."
     cd ..
