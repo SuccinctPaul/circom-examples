@@ -1,6 +1,6 @@
-npm install -g circom@latest
-npm install
-npm link
+#npm install -g circom@latest
+#npm install
+#npm link
 # 1. Start a new powers of tau ceremony
 snarkjs powersoftau new bn128 14 pot14_0000.ptau -v
 # 2. Contribute to the ceremony
