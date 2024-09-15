@@ -6,5 +6,3 @@ services:
       context: .
       dockerfile: ./docker/Dockerfile
     image: circom-demo-sandbox:latest
-    restart: unless-stopped
-    env_file: .env
