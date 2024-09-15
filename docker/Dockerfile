@@ -21,3 +21,5 @@ RUN nvm install 20  && npm install -g yarn && yarn set version 1.22.19
 
 # copy env.
 COPY . .
+
+ENTRYPOINT ["sh"]
