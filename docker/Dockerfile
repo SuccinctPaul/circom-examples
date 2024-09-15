@@ -37,7 +37,7 @@ WORKDIR /home/devuser
 # CMD ["node", "your-server.js"]  
   
 # Or, if you're just building a Rust project, you might want to build it  
-CMD ["bash"]
+CMD ["sh"]
   
 # This example doesn't specify a CMD or ENTRYPOINT since it's a dev sandbox  
 # You should adjust CMD or ENTRYPOINT based on your project needs
