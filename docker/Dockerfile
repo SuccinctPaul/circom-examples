@@ -24,12 +24,12 @@ RUN useradd -ms /bin/bash devuser
 USER devuser  
   
 # Set up the working directory  
-WORKDIR /home/devuser
+WORKDIR /home/devuser/circom_demo
   
 # Copy your source files (assuming you have a Rust and Node.js project)  
- COPY . .
-  
-# You might need to install additional dependencies for your Rust or Node.js projects  
+COPY . .
+
+# You might need to install additional dependencies for your Rust or Node.js projects
 # For example, using cargo to install Rust dependencies  
 # RUN cargo install --path .  
   
@@ -37,7 +37,7 @@ WORKDIR /home/devuser
 # CMD ["node", "your-server.js"]  
   
 # Or, if you're just building a Rust project, you might want to build it  
-CMD ["sh"]
+CMD ["bash", "scripts/install.sh"]
   
 # This example doesn't specify a CMD or ENTRYPOINT since it's a dev sandbox  
 # You should adjust CMD or ENTRYPOINT based on your project needs
