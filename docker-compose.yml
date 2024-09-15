@@ -1,0 +1,10 @@
+version: "3"
+services:
+  demo:
+    container_name: circom-demo-sandbox
+    build:
+      context: .
+      dockerfile: ./docker/Dockerfile
+    image: circom-demo-sandbox:latest
+    restart: unless-stopped
+    env_file: .env
