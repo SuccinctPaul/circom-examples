@@ -1,6 +1,6 @@
 # Use an official Rust image as a base  
-FROM rust:1.59-slim AS builder  
-  
+FROM rust:1.67 as builder
+
 # Install curl and bash for downloading NVM and managing the shell  
 RUN apt-get update && apt-get install -y --no-install-recommends curl bash && \
     rm -rf /var/lib/apt/lists/*
@@ -37,7 +37,7 @@ COPY . .
 # CMD ["node", "your-server.js"]  
   
 # Or, if you're just building a Rust project, you might want to build it  
-CMD ["echo", "hello"]
+#CMD ["echo", "hello"]
   
 # This example doesn't specify a CMD or ENTRYPOINT since it's a dev sandbox  
 # You should adjust CMD or ENTRYPOINT based on your project needs
