@@ -1,6 +1,22 @@
 #!/usr/bin/env
 
 
+
+
+
+# need npm
+if type node >/dev/null; then
+    echo "rustc is installed (as a command, alias, or function)."
+else
+    echo "rustc is not installed (as a command, alias, or function)."
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash
+    nvm install node
+    npm install -g yarn
+    yarn set version 1.22.19
+    echo "rustc is installed (as a command, alias, or function)."
+fi
+
+
 # need rust and npm
 if type rustc >/dev/null; then
     echo "rustc is installed (as a command, alias, or function)."
