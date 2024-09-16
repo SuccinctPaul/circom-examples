@@ -34,7 +34,7 @@ RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 ENV PATH="/root/.cargo/bin:${PATH}"
 
 # Install NVM
-ENV NVM_DIR /root/nvm
+ENV NVM_DIR /usr/local/nvm
 ENV NODE_VERSION 18.19.1
 
 RUN mkdir -p "$NVM_DIR" \
@@ -42,7 +42,7 @@ RUN mkdir -p "$NVM_DIR" \
     && . "$NVM_DIR/nvm.sh" \
     && nvm install $NODE_VERSION \
     && nvm use $NODE_VERSION \
-    && npm install -g npm \
+    && npm install -g npm
 
 # We need to set up the shell to source NVM every time
 ENV PATH "$NVM_DIR/versions/node/v$NODE_VERSION/bin:$PATH"
