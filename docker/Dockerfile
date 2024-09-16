@@ -44,6 +44,10 @@ RUN mkdir -p "$NVM_DIR" \
     && nvm use $NODE_VERSION \
     && npm install -g npm \
 
+# We need to set up the shell to source NVM every time
+ENV PATH "$NVM_DIR/versions/node/v$NODE_VERSION/bin:$PATH"
+
+
 # install snarkjs
 RUN npm install -g snarkjs  # 如果snarkJS有npm包
 # install snarkjs2
