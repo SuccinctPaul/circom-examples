@@ -27,6 +27,7 @@ snarkjs2 powersoftau export json pot14_final.ptau pot14_final.json -v
 cat > circuit.circom <<EOF
 // Reference: https://docs.circom.io/getting-started/writing-circuits
 //pragma circom 2.0.0;
+// Because here is the npm/snarkjs, so don't need circom.
 
 template Multiplier2() {
    // Declaration of signals.
