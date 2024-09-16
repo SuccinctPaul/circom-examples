@@ -42,7 +42,7 @@ component main = Multiplier2();
 EOF
 
 # 10. Compile the circuit
-circom circuit.circom --r1cs --wasm --sym -c
+circom circuit.circom --r1cs --wasm --sym -v
 # 11. View information about the circuit
 snarkjs2 r1cs info circuit.r1cs
 # 12. Print the constraints
