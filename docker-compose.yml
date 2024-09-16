@@ -1,4 +1,4 @@
-version:
+services:
   zk:
     container_name: circom-demo-sandbox
     build:
