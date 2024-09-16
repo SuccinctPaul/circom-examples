@@ -57,10 +57,10 @@ cat > input.json <<EOF
 {"a": 3, "b": 11}
 EOF
 
-snarkjs2 wtns calculate circuit_js/circuit.wasm input.json witness.wtns
+snarkjs2 wtns calculate circuit.wasm input.json witness.wtns
 snarkjs2 wtns check circuit.r1cs witness.wtns
 # 23. Debug the final witness calculation
-snarkjs2 wtns debug circuit_js/circuit.wasm input.json witness.wtns circuit.sym --trigger --get --set
+snarkjs2 wtns debug circuit.wasm input.json witness.wtns circuit.sym --trigger --get --set
 
 
 # 14. Generate the reference zkey without phase 2 contributions
