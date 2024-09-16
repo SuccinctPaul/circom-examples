@@ -7,7 +7,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends curl bash && \
 
 # Install NVM
 ENV NVM_DIR /usr/local/nvm
-ENV NODE_VERSION 14.18.1
+ENV NODE_VERSION 18.19.1
 
 RUN mkdir -p "$NVM_DIR" \
     && curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash \
