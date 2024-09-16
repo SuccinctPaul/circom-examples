@@ -26,6 +26,33 @@ USER devuser
 # Set up the working directory
 WORKDIR /home/devuser/circom_demo
 
+# Install required dependencies
+RUN apt-get update && apt-get install -y \
+    cmake \
+    make \
+    bash \
+    git \
+    openssl \
+    libssl-dev \
+    gcc \
+    g++ \
+    curl \
+    pkg-config \
+    software-properties-common \
+    jq \
+    openssh-server \
+    openssh-client \
+    vim \
+    emacs \
+    ca-certificates \
+    gnupg2 \
+    postgresql-client \
+    wget \
+    bzip2 \
+    hub \
+    unzip
+
+
 # Copy your source files (assuming you have a Rust and Node.js project)
 COPY . .
 
