@@ -1,8 +1,10 @@
-version: "3"
-services:
-  demo:
+version:
+  zk:
     container_name: circom-demo-sandbox
     build:
       context: .
       dockerfile: ./docker/Dockerfile
     image: circom-demo-sandbox:latest
+    command: tail -f /dev/null
+    profiles:
+      - runner
