@@ -26,7 +26,7 @@ snarkjs2 powersoftau export json pot14_final.ptau pot14_final.json -v
 # 9. Create the circuit
 cat > circuit.circom <<EOF
 // Reference: https://docs.circom.io/getting-started/writing-circuits
-pragma circom 2.0.0;
+//pragma circom 2.0.0;
 
 template Multiplier2() {
    // Declaration of signals.
