@@ -19,15 +19,8 @@ RUN mkdir -p "$NVM_DIR" \
 # We need to set up the shell to source NVM every time
 ENV PATH "$NVM_DIR/versions/node/v$NODE_VERSION/bin:$PATH"
 
-# Add a non-root user to run our commands (best practice)
-RUN useradd -ms /bin/bash devuser
-USER devuser
-
-# Set up the working directory
-WORKDIR /home/devuser/circom_demo
-
 # Install required dependencies
-RUN apt-get update && apt-get install -y \
+RUN apt-get update && apt-get install \
     cmake \
     make \
     bash \
@@ -51,6 +44,14 @@ RUN apt-get update && apt-get install -y \
     bzip2 \
     hub \
     unzip
+
+
+# Add a non-root user to run our commands (best practice)
+RUN useradd -ms /bin/bash devuser
+USER devuser
+
+# Set up the working directory
+WORKDIR /home/devuser/circom_demo
 
 
 # Copy your source files (assuming you have a Rust and Node.js project)
