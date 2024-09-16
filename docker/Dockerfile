@@ -47,11 +47,11 @@ RUN apt-get update && apt-get install -y \
 
 
 # Add a non-root user to run our commands (best practice)
-RUN useradd -ms /bin/bash devuser
-USER devuser
+RUN #useradd -ms /bin/bash devuser
+#USER devuser
 
 # Set up the working directory
-WORKDIR /home/devuser/circom_demo
+WORKDIR /home/root/circom_demo
 
 
 # Copy your source files (assuming you have a Rust and Node.js project)
