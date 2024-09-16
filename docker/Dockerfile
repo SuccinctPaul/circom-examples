@@ -1,23 +1,6 @@
-# Use an official Rust image as a base
-FROM rust:1.67 as builder
+FROM ubuntu:latest
 
-# Install curl and bash for downloading NVM and managing the shell
-RUN apt-get update && apt-get install -y --no-install-recommends curl bash && \
-    rm -rf /var/lib/apt/lists/*
-
-# Install NVM
-ENV NVM_DIR /usr/local/nvm
-ENV NODE_VERSION 18.19.1
-
-RUN mkdir -p "$NVM_DIR" \
-    && curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash \
-    && . "$NVM_DIR/nvm.sh" \
-    && nvm install $NODE_VERSION \
-    && nvm use $NODE_VERSION \
-    && npm install -g npm
-
-# We need to set up the shell to source NVM every time
-ENV PATH "$NVM_DIR/versions/node/v$NODE_VERSION/bin:$PATH"
+ENV DEBIAN_FRONTEND=noninteractive
 
 # Install required dependencies
 RUN apt-get update && apt-get install -y \
@@ -43,29 +26,36 @@ RUN apt-get update && apt-get install -y \
     wget \
     bzip2 \
     hub \
-    unzip
+    unzip \
+    && rm -rf /var/lib/apt/lists/*
 
+# install Rust
+RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+ENV PATH="/root/.cargo/bin:${PATH}"
 
-# Add a non-root user to run our commands (best practice)
-RUN #useradd -ms /bin/bash devuser
-#USER devuser
+# Install NVM
+ENV NVM_DIR /root/nvm
+ENV NODE_VERSION 18.19.1
 
-# Set up the working directory
-WORKDIR /home/root/circom_demo
+RUN mkdir -p "$NVM_DIR" \
+    && curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash \
+    && . "$NVM_DIR/nvm.sh" \
+    && nvm install $NODE_VERSION \
+    && nvm use $NODE_VERSION \
+    && npm install -g npm \
 
+# install snarkjs
+RUN npm install -g snarkjs  # 如果snarkJS有npm包
+# install snarkjs2
+RUN git clone https://github.com/SuccinctPaul/snarkjs-blake3 && cd snarkjs-blake3 && npm install && npm link
 
-# Copy your source files (assuming you have a Rust and Node.js project)
-COPY . .
+# set workdir
+WORKDIR /app
 
-# You might need to install additional dependencies for your Rust or Node.js projects
-# For example, using cargo to install Rust dependencies
-# RUN cargo install --path .
+COPY . /app
 
-# Example command to start a Node.js server (if applicable)
-# CMD ["node", "your-server.js"]
+# 暴露端口（如果你的应用需要）
+# EXPOSE 8080
 
-# Or, if you're just building a Rust project, you might want to build it
-#CMD ["/bin/bash"]
-
-# This example doesn't specify a CMD or ENTRYPOINT since it's a dev sandbox
-# You should adjust CMD or ENTRYPOINT based on your project needs
+# 运行命令（如果需要的话）
+# CMD ["node", "app.js"]
