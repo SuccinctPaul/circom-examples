@@ -49,7 +49,7 @@ ENV PATH "$NVM_DIR/versions/node/v$NODE_VERSION/bin:$PATH"
 
 
 # install snarkjs
-RUN npm install -g snarkjs  # 如果snarkJS有npm包
+RUN npm install -g snarkjs
 # install snarkjs2
 RUN git clone https://github.com/SuccinctPaul/snarkjs-blake3 && cd snarkjs-blake3 && npm install && npm link
 
@@ -58,8 +58,7 @@ WORKDIR /app
 
 COPY . /app
 
-# 暴露端口（如果你的应用需要）
+
 # EXPOSE 8080
 
-# 运行命令（如果需要的话）
 # CMD ["node", "app.js"]
