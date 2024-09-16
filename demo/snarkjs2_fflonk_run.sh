@@ -31,8 +31,8 @@ cat > circuit.circom <<EOF
 
 template Multiplier2() {
    // Declaration of signals.
-   signal input a;
-   signal input b;
+   signal a<==2;
+   signal b<==3;
    signal output c;
 
    // Constraints.
@@ -55,7 +55,7 @@ cat circuit.r1cs.json
 
 # 22. Calculate the witness
 cat > input.json <<EOF
-{"a": 3, "b": 11}
+{}
 EOF
 
 snarkjs2 wtns calculate circuit.wasm input.json witness.wtns
