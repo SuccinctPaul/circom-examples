@@ -20,7 +20,7 @@ RUN mkdir -p "$NVM_DIR" \
 ENV PATH "$NVM_DIR/versions/node/v$NODE_VERSION/bin:$PATH"
 
 # Install required dependencies
-RUN apt-get update && apt-get install \
+RUN apt-get update && apt-get install -y \
     cmake \
     make \
     bash \
