@@ -1,0 +1,8 @@
+services:
+  zk:
+    container_name: circom-demo-sandbox
+    build:
+      context: .
+      dockerfile: ./docker/Dockerfile
+    image: circom-demo-sandbox:latest
+    command: tail -f /dev/null

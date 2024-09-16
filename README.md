@@ -16,7 +16,7 @@ circom --help
 
 * install snarkjs
 ```bash
-sudo npm install snarkjs
+npm install -g snarkjs
 ```
 
 

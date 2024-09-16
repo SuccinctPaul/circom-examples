@@ -1,6 +1,6 @@
-npm install -g circom@latest
-npm install
-npm link
+#npm install -g circom@latest
+#npm install
+#npm link
 # 1. Start a new powers of tau ceremony
 snarkjs powersoftau new bn128 14 pot14_0000.ptau -v
 # 2. Contribute to the ceremony
@@ -78,6 +78,7 @@ EOF
 
 snarkjs wtns calculate circuit_js/circuit.wasm input.json witness.wtns
 snarkjs wtns check circuit.r1cs witness.wtns
+
 # 23. Debug the final witness calculation
 snarkjs wtns debug circuit_js/circuit.wasm input.json witness.wtns circuit.sym --trigger --get --set
 # 24. Create the proof
