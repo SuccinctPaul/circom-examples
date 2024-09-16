@@ -6,7 +6,7 @@ else
     git clone https://github.com/SuccinctPaul/snarkjs-blake3
     cd snarkjs-blake3
     git checkout debug
-    sudo npm install -g circom@latest
+    npm install -g circom@latest
     npm install
 
     # link related package
