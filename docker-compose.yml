@@ -6,5 +6,3 @@ version:
       dockerfile: ./docker/Dockerfile
     image: circom-demo-sandbox:latest
     command: tail -f /dev/null
-    profiles:
-      - runner
