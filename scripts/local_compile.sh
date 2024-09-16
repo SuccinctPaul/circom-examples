@@ -5,6 +5,7 @@ if type snarkjs2 >/dev/null; then
 else
     git clone https://github.com/SuccinctPaul/snarkjs-blake3
     cd snarkjs-blake3
+    git checkout debug
     npm install
 
     # link related package

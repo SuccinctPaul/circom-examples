@@ -54,7 +54,7 @@ RUN npm install -g snarkjs
 RUN git clone https://github.com/SuccinctPaul/snarkjs-blake3 && cd snarkjs-blake3 && npm install && npm link
 
 # set workdir
-WORKDIR /app
+WORKDIR /root
 
 COPY . /app
 
